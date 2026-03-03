@@ -15,7 +15,7 @@ public abstract class UczniowieDataBase extends RoomDatabase {
             instancja = Room.databaseBuilder(
                             context.getApplicationContext(),
                             UczniowieDataBase.class,
-                            "maszyny_db")
+                            "uczniowie_db")
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();
