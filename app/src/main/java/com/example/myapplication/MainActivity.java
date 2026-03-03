@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     EditText editTextKlasa;
     Button buttonZatwierdz;
 
+    Boolean czyEdytuj = false;
+    int indexUcznia;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,9 +67,23 @@ public class MainActivity extends AppCompatActivity {
                 int pesel = Integer.parseInt(editTextPesel.getText().toString());
                 String klasa = editTextKlasa.getText().toString();
 
-                uczniowieDB.zwrocUczenDAO().dodajUcznia(new Uczen(imie, nazwisko, pesel, klasa));
-                listUczniowie.add(new Uczen(imie, nazwisko, pesel, klasa));
-                arrayAdapter.notifyDataSetChanged();
+                if (czyEdytuj==false){
+                    uczniowieDB.zwrocUczenDAO().dodajUcznia(new Uczen(imie, nazwisko, pesel, klasa));
+                    listUczniowie.add(new Uczen(imie, nazwisko, pesel, klasa));
+                    arrayAdapter.notifyDataSetChanged();
+                }
+
+                else if(czyEdytuj){
+                    listUczniowie.get(indexUcznia).setImie(editTextImie.getText().toString());
+                    listUczniowie.get(indexUcznia).setNazwisko(editTextNazwisko.getText().toString());
+                    listUczniowie.get(indexUcznia).setPesel(Integer.parseInt(editTextPesel.getText().toString()));
+                    listUczniowie.get(indexUcznia).setKlasa(editTextKlasa.getText().toString());
+
+                    arrayAdapter.notifyDataSetChanged();
+                    uczniowieDB.zwrocUczenDAO().edytujDaneUcznia(listUczniowie.get(indexUcznia));
+
+                    czyEdytuj=false;
+                }
 
                 editTextImie.setText("");
                 editTextNazwisko.setText("");
@@ -89,10 +106,12 @@ public class MainActivity extends AppCompatActivity {
         listViewUczniowie.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                editTextImie.setText("");
-                editTextNazwisko.setText("");
-                editTextPesel.setText("");
-                editTextKlasa.setText("");
+                czyEdytuj = true;
+                editTextImie.setText(""+listUczniowie.get(i).getImie());
+                editTextNazwisko.setText(""+listUczniowie.get(i).getNazwisko());
+                editTextPesel.setText(""+listUczniowie.get(i).getPesel());
+                editTextKlasa.setText(""+listUczniowie.get(i).getKlasa());
+                indexUcznia = i;
             }
         });
     }

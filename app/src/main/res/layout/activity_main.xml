@@ -32,7 +32,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Imie"
                 android:layout_weight="1"
@@ -40,7 +40,7 @@
 
             <EditText
                 android:id="@+id/editTextImie"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:layout_weight="1"/>
@@ -52,7 +52,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nazwisko"
                 android:layout_weight="1"
@@ -60,7 +60,7 @@
 
             <EditText
                 android:id="@+id/editTextNazwisko"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:layout_weight="1"/>
@@ -72,7 +72,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pesel"
                 android:layout_weight="1"
@@ -80,7 +80,7 @@
 
             <EditText
                 android:id="@+id/editTextPesel"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:layout_weight="1"/>
@@ -92,7 +92,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Klasa"
                 android:layout_weight="1"
@@ -100,7 +100,7 @@
 
             <EditText
                 android:id="@+id/editTextKlasa"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:layout_weight="1"/>
